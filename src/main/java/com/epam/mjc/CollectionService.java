@@ -6,22 +6,30 @@ import java.util.Optional;
 public class CollectionService {
 
     public List<Integer> filterEvenNumbers(List<Integer> list) {
-        throw new UnsupportedOperationException("You should implement this method.");
+        return list.stream()
+                .filter(i -> i % 2 == 0)
+                .toList();
     }
 
     public List<String> toUpperCaseCollection(List<String> list) {
-        throw new UnsupportedOperationException("You should implement this method.");
+        return list.stream()
+                .map(String::toUpperCase)
+                .toList();
     }
 
     public Optional<Integer> findMax(List<Integer> list) {
-        throw new UnsupportedOperationException("You should implement this method.");
+        return list.stream()
+                .max(Integer::compareTo);
     }
 
     public Optional<Integer> findMin(List<List<Integer>> list) {
-        throw new UnsupportedOperationException("You should implement this method.");
+        return list.stream()
+                .flatMap(List::stream)
+                .min(Integer::compareTo);
     }
 
     public Integer sum(List<Integer> list) {
-        throw new UnsupportedOperationException("You should implement this method.");
+        return list.stream()
+                .reduce(0, Integer::sum);
     }
 }
